@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\API">
+      <UniqueIdentifier>{bf838fb4-b1af-46c9-815e-e274808c9d1f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -35,19 +38,19 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="NTFSDisk.cpp">
+    <ClCompile Include="Example.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Buffer.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\API</Filter>
     </ClCompile>
-    <ClCompile Include="Example.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="NTFSDisk.cpp">
+      <Filter>源文件\API</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="CBuffer.tpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\API</Filter>
     </None>
   </ItemGroup>
 </Project>

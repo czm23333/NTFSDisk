@@ -115,21 +115,23 @@ typedef struct _RUNLIST_ENTRY_INFO {
 
 // Intefaces
 
-bool ReadVolumeBootSector(HANDLE hVolume, PBOOT_SECTOR pBootSector);
-bool ReadVolumeOffset(HANDLE hVolume, PBOOT_SECTOR pBootSector, void* buffer, size_t size, unsigned long long offset);
-bool ReadVolumeOffset(HANDLE hVolume, PBOOT_SECTOR pBootSector, BUFFER buffer, unsigned long long offset);
-bool ReadVolumeOffset(HANDLE hVolume, PBOOT_SECTOR pBootSector, CUcharBuffer& buffer, unsigned long long offset);
-bool ReadVolumeSector(HANDLE hVolume, PBOOT_SECTOR pBootSector, void* buffer, size_t size, unsigned long long sector);
-bool ReadVolumeSector(HANDLE hVolume, PBOOT_SECTOR pBootSector, BUFFER buffer, unsigned long long sector);
-bool ReadVolumeSector(HANDLE hVolume, PBOOT_SECTOR pBootSector, CUcharBuffer& buffer, unsigned long long sector);
-bool ReadVolumeCluster(HANDLE hVolume, PBOOT_SECTOR pBootSector, void* buffer, size_t size, unsigned long long cluster);
-bool ReadVolumeCluster(HANDLE hVolume, PBOOT_SECTOR pBootSector, BUFFER buffer, unsigned long long cluster);
-bool ReadVolumeCluster(HANDLE hVolume, PBOOT_SECTOR pBootSector, CUcharBuffer& buffer, unsigned long long cluster);
+bool ReadVolumeBootSector(_In_ HANDLE hVolume, _Out_ PBOOT_SECTOR pBootSector);
+bool ReadVolumeOffset(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ void* buffer, _In_ size_t size, _In_ unsigned long long offset);
+bool ReadVolumeOffset(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ BUFFER buffer, _In_ unsigned long long offset);
+bool ReadVolumeOffset(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ CUcharBuffer& buffer, _In_ unsigned long long offset);
+bool ReadVolumeSector(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ void* buffer, _In_ size_t size, _In_ unsigned long long sector);
+bool ReadVolumeSector(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ BUFFER buffer, _In_ unsigned long long sector);
+bool ReadVolumeSector(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ CUcharBuffer& buffer, _In_ unsigned long long sector);
+bool ReadVolumeCluster(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ void* buffer, _In_ size_t size, _In_ unsigned long long cluster);
+bool ReadVolumeCluster(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ BUFFER buffer, _In_ unsigned long long cluster);
+bool ReadVolumeCluster(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ CUcharBuffer& buffer, _In_ unsigned long long cluster);
 
-unsigned long long ReadFileRecord(HANDLE hVolume, PBOOT_SECTOR pBootSector, PFILE_RECORD pFileRecord, unsigned long long sector);
-unsigned long long ReadFileRecordCluster(HANDLE hVolume, PBOOT_SECTOR pBootSector, PFILE_RECORD pFileRecord, unsigned long long cluster);
+// Return the offset of the record
+unsigned long long ReadFileRecord(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ PFILE_RECORD pFileRecord, _In_ unsigned long long sector);
+unsigned long long ReadFileRecordCluster(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ PFILE_RECORD pFileRecord, _In_ unsigned long long cluster);
 
-bool ReadAttributeHead(HANDLE hVolume, PBOOT_SECTOR pBootSector, PATTRIBUTE_HEAD pAttributeHead, unsigned long long offset);
-bool ReadAttribute(HANDLE hVolume, PBOOT_SECTOR pBootSector, PRESIDENT_ATTRIBUTE pAttribute, unsigned long long offset);
-bool ReadAttribute(HANDLE hVolume, PBOOT_SECTOR pBootSector, PNONRESIDENT_ATTRIBUTE pAttribute, unsigned long long offset);
-unsigned long long ReadRunListEntry(HANDLE hVolume, PBOOT_SECTOR pBootSector, PRUNLIST_ENTRY_INFO pEntryInfo, unsigned long long offset);
+bool ReadAttributeHead(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ PATTRIBUTE_HEAD pAttributeHead, _In_ unsigned long long offset);
+bool ReadAttribute(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ PRESIDENT_ATTRIBUTE pAttribute, _In_ unsigned long long offset);
+bool ReadAttribute(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ PNONRESIDENT_ATTRIBUTE pAttribute, _In_ unsigned long long offset);
+// Return the offset of the next entry
+unsigned long long ReadRunListEntry(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ PRUNLIST_ENTRY_INFO pEntryInfo, _In_ unsigned long long offset);
