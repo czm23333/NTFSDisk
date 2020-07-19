@@ -113,7 +113,7 @@ typedef struct _RUNLIST_ENTRY_INFO {
 }RUNLIST_ENTRY_INFO, *PRUNLIST_ENTRY_INFO;
 
 
-// Intefaces
+// Interfaces
 
 bool ReadVolumeBootSector(_In_ HANDLE hVolume, _Out_ PBOOT_SECTOR pBootSector);
 bool ReadVolumeOffset(_In_ HANDLE hVolume, _In_ PBOOT_SECTOR pBootSector, _Out_ void* buffer, _In_ size_t size, _In_ unsigned long long offset);
